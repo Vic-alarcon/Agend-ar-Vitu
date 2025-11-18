@@ -1,6 +1,6 @@
 "use client";
 
-import style from './Footer.module.css';
+import styles from "./Footer.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import UpcomingEventsModal from "./UpcomingEventsModal";
@@ -31,13 +31,20 @@ export default function Footer() {
             <li>
              <UbicacionesDropdown />
             </li>
-            <li>Promociones</li>
+            <li>
+              <a href="https://paginaexterna.com/descargar-entradas" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              > 
+              Descarga tu entrada
+              </a>
+            </li>
           </ul>
         </div>
         
         <UpcomingEventsModal 
-        open={modalOpen}
-        onClose={() => setModalOpen(false)} />
+          open={modalOpen}
+          onClose={() => setModalOpen(false)} />
         
         <div>
           <h3>Ayuda</h3>
