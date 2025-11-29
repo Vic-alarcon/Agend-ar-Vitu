@@ -8,8 +8,8 @@ describe('SearchBar', () => {
     render(<SearchBar provinces={[{slug: 'cordoba', nombre: 'Córdoba'}]} onChange={() => {}} />);
     expect(screen.getByPlaceholderText(/Buscar por título/i)).toBeTruthy();
     expect(screen.getByRole('combobox')).toBeTruthy();
-    // two date inputs
-    const dateInputs = screen.getAllByLabelText(/Fecha/);
-    expect(dateInputs.length).toBe(2);
+    // two date inputs labeled
+    expect(screen.getByLabelText('Fecha inicio')).toBeTruthy();
+    expect(screen.getByLabelText('Fecha fin')).toBeTruthy();
   });
 });
