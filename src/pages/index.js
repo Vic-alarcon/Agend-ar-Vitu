@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 
 // Layout & UI
+import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import FloatingUserStatus from '@/components/ui/FloatingUserStatus';
 import TicketModal from '@/components/modals/TicketModal';
@@ -36,6 +37,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#1e293b] text-gray-200 font-sans flex flex-col">
       <Head><title>Agend-ar | Eventos</title></Head>
 
+      <Navbar isLoggedIn={isLoggedIn} onLogin={() => setIsLoggedIn(true)} />
       <FloatingUserStatus 
         isLoggedIn={isLoggedIn}
         onToggle={() => setIsLoggedIn(!isLoggedIn)}
