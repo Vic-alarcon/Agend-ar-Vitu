@@ -1,9 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link"; // <--- 1. IMPORTANTE: Importamos Link
 import { useState } from "react";
-import Image from "next/image";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+
+// Si no tienes estos íconos instalados, asegúrate de que no den error, 
+// o usa los SVGs que ya tenías abajo. El import de lucide-react es opcional si usas los SVGs manuales.
+// import { Facebook, Instagram, Twitter } from "lucide-react"; 
+
 import UpcomingEventsModal from "./UpcomingEventsModal";
 import UbicacionesDropdown from "./UbicacionesDropdown";
 
@@ -11,7 +15,6 @@ export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    // Usamos el color --color-dark (slate-900) que definimos
     <footer className="bg-[#1e293b] text-gray-300 pt-16 pb-8 font-sans border-t border-gray-700 mt-auto">
       
       <div className="max-w-7xl mx-auto px-6">
@@ -19,22 +22,22 @@ export default function Footer() {
           
           {/* COLUMNA 1: Logo */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            
+            {/* AQUI ESTÁ EL CAMBIO: Usamos Link en lugar de div */}
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                {/* Logo Imagen */}
                <div className="bg-transparent p-0">
                  <Image 
-                    src="/Logo_agendar.png" 
+                    src="/Logo_agendar.jpg"
                     alt="Agend-ar" 
-                    width={50} 
-                    height={50} 
+                    width={100} 
+                    height={100} 
                     className="object-contain"
                  />
                </div>
-               {/* Texto imitando el Logo: AGEND (Blanco) - AR (Menta) */}
-               <span className="text-2xl font-bold text-white tracking-tight">
-                 AGEND<span className="text-[#2dd4bf]">-AR</span>
-               </span>
-            </div>
+               
+            </Link>
+
             <p className="text-sm text-gray-400 max-w-xs leading-relaxed mt-2">
                 Tu agenda de eventos nacional. Conectamos pasiones en cada rincón del país.
             </p>
@@ -61,14 +64,31 @@ export default function Footer() {
         
           <UpcomingEventsModal open={modalOpen} onClose={() => setModalOpen(false)} />
         
-          {/* COLUMNA 3: Ayuda */}
+          {/* COLUMNA 3: Ayuda (MODIFICADA CON LINKS) */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6 border-b border-[#2dd4bf] pb-2 inline-block">Ayuda</h3>
             <ul className="space-y-3 text-sm">
-              <li className="hover:text-white cursor-pointer transition-colors">Contacto</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Términos y Condiciones</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Política de Privacidad</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Preguntas Frecuentes (FAQ)</li>
+              <li>
+                {/* Asumimos que la ruta es /info. Si es otra, cámbialo aquí */}
+                <Link href="/info#contacto" className="hover:text-white cursor-pointer transition-colors block">
+                  Contacto
+                </Link>
+              </li>
+              <li>
+                <Link href="/info#terminos" className="hover:text-white cursor-pointer transition-colors block">
+                  Términos y Condiciones
+                </Link>
+              </li>
+              <li>
+                <Link href="/info#privacidad" className="hover:text-white cursor-pointer transition-colors block">
+                  Política de Privacidad
+                </Link>
+              </li>
+              <li>
+                <Link href="/info#faq" className="hover:text-white cursor-pointer transition-colors block">
+                  Preguntas Frecuentes (FAQ)
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -76,7 +96,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-6 border-b border-[#2dd4bf] pb-2 inline-block">Síguenos</h3>
             <div className="flex gap-4">
-               {/* Botones de redes con el color de marca al pasar el mouse */}
+               {/* Botones de redes */}
                <div className="bg-gray-800 p-2 rounded-full hover:bg-[#2dd4bf] hover:text-black hover:-translate-y-1 transition-all cursor-pointer text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6c0-.9.2-1.3 1.1-1.3H19V0h-3.8C11.6 0 10 1.6 10 4.6V8z" /></svg>
                </div>
