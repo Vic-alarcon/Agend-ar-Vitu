@@ -106,7 +106,11 @@ export default function Home() {
         {/* LOGO SOLO - Tamaño Razonable (64px) */}
         <div className="absolute top-6 left-6 z-20">
             <Link href="/" className="hover:opacity-80 transition-opacity">
-                <Image src="/Logo_agendar.png" alt="Logo" width={100} height={100} className="object-contain w-20 h-20 drop-shadow-lg" />
+                <Image src="/Logo-agendar.png" 
+                  alt="Logo" 
+                  width={120} 
+                  height={120} 
+                  className="object-contain w-20 h-20 drop-shadow-lg" />
             </Link>
         </div>
 
