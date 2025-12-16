@@ -20,6 +20,7 @@ export default function EventCard({ titulo, fecha, lugar, precio, imagen, catego
           <span className="text-teal-700 font-semibold bg-teal-50 px-2 py-1 rounded">
             📅 {fecha}
           </span>
+
           <span className="text-gray-900 font-bold">
             {precio === 0 ? 'Gratis' : `$${precio.toLocaleString()}`}
           </span>

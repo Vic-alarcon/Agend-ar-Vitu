@@ -56,12 +56,11 @@ export default function Footer() {
         
           <UpcomingEventsModal open={modalOpen} onClose={() => setModalOpen(false)} />
         
-          {/* COLUMNA 3: Ayuda (MODIFICADA CON LINKS) */}
+          {/* COLUMNA 3: Ayuda */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6 border-b border-[#2dd4bf] pb-2 inline-block">Ayuda</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                {/* Asumimos que la ruta es /info. Si es otra, cámbialo aquí */}
                 <Link href="/info#contacto" className="hover:text-white cursor-pointer transition-colors block">
                   Contacto
                 </Link>
